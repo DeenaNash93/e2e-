@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="C:\Users\weama\OneDrive\שולחן העבודה\Desigh\Pages\Style.css">
+</head>  
+
+<body>
+  <img src="Logo_PNG.png" class="logo">
+<center>
+<div class="clock">00:00:00</div>
+<table class="center">
+  <tr>
+    <td class="center">0</td>
+  </tr>
+  <table class="center1">
+    <tr>
+      <td class="center1">0</td>
+    </tr>
+</center>
+
+</div>
+
+<script>
+function startCountdown() {
+  var count = 0;
+  var clockElements = document.querySelectorAll('.clock');
+  var interval = setInterval(function() {
+    count++;
+    var seconds = count % 60;
+    var minutes = Math.floor(count / 60) % 60;
+    var hours = Math.floor(count / 3600);
+    var time = hours.toString().padStart(2, '0') + ':' + minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
+    clockElements.forEach(function(element) {
+      element.textContent = time;
+    });
+    if (count === 60) {
+      clearInterval(interval);
+    }
+  }, 1000);
+}
+
+document.addEventListener('DOMContentLoaded', startCountdown);
+</script>
+
+</body>
+</html>
